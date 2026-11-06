@@ -1,0 +1,145 @@
+* { box-sizing: border-box; }
+
+html { background: #000; }
+
+body {
+  margin: 0;
+  background: #000;
+  color: #c8c8c8;
+  font: 18px/1.6 "Times New Roman", Times, Georgia, serif;
+}
+
+a { color: #fff; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: #666; }
+a:hover, a:focus-visible { background: #fff; color: #000; text-decoration-color: transparent; outline: none; }
+
+.home .center {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.year { margin: 0; color: #666; letter-spacing: 0.25em; text-transform: uppercase; font-size: 0.8rem; }
+
+
+.quiet { color: #777; text-align: center; font-style: italic; }
+
+.leaf .top, .leaf main {
+  width: min(680px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 0 0.75rem;
+  font-size: 0.9rem;
+}
+
+main { padding-bottom: 6rem; }
+
+h1 {
+  margin: 1.5rem 0 0;
+  padding-bottom: 0.5rem;
+  font-size: clamp(1.8rem, 6vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: #fff;
+  border-bottom: 3px double #444;
+}
+
+h2 {
+  margin: 2.5rem 0 0.9rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #777;
+}
+
+p { margin: 0 0 1rem; }
+.src { font-size: 0.85rem; color: #777; }
+
+img.lead { float: right; max-width: 45%; margin: 0.3rem 0 0.8rem 1rem; }
+
+.body::after { content: ""; display: block; clear: both; }
+
+ul, ol { padding-left: 1.2rem; margin: 0; }
+ul li, ol li { margin: 0.3rem 0; }
+.batch ul, .plain { list-style: none; padding: 0; }
+.snip { color: #888; font-size: 0.9rem; }
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+  margin: 0 0 1rem;
+}
+.gallery figure { margin: 0; }
+.gallery img {
+  display: block;
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  background: #111;
+}
+.gallery figcaption {
+  margin-top: 0.3rem;
+  font-size: 0.75rem;
+  line-height: 1.3;
+  color: #888;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+a.tile { display: block; text-decoration: none; }
+a.tile:hover, a.tile:focus-visible { background: none; color: inherit; }
+a.tile:hover img, a.tile:focus-visible img { outline: 1px solid #fff; }
+.gallery a:hover img, .gallery a:focus-visible img { outline: 1px solid #fff; }
+.gallery > a { text-decoration: none; }
+.gallery > a:hover, .gallery > a:focus-visible { background: none; }
+
+.batch { margin-top: 0.5rem; }
+
+.more { margin: 3rem 0 0; text-align: center; color: #555; font-size: 0.85rem; }
+
+[hidden] { display: none !important; }
+
+@media (max-width: 480px) {
+  img.lead { float: none; max-width: 100%; margin: 0 0 1rem; }
+}
+
+/* corruption */
+.whisper { color: #7a1f1f; font-size: 0.85rem; margin: 1rem 0; }
+
+a[class*="r-"], span[class*="r-"], button[class*="r-"] { display: inline-block; }
+.r-skew { transform: skew(-14deg) rotate(-1deg); }
+.r-flip { transform: scaleX(-1); }
+.r-blur { filter: blur(2px); }
+.r-fade { opacity: 0.25; }
+.r-shift { transform: translate(8px, -3px); }
+.r-big { font-size: 2em; line-height: 1.1; }
+.r-tiny { font-size: 0.5em; }
+.r-strike { text-decoration: line-through; }
+.r-shake { animation: shake 0.35s steps(2) infinite; }
+.r-invert { filter: invert(1); }
+.r-hue { filter: hue-rotate(160deg) saturate(3); }
+.r-dark { filter: brightness(0.25) contrast(2); }
+.r-mono { filter: grayscale(1) contrast(3); }
+.r-flash { filter: invert(1) !important; transform: translateX(6px); }
+
+body.rot-1 main { text-shadow: 1px 0 rgba(255, 0, 0, 0.55), -1px 0 rgba(0, 255, 255, 0.45); }
+body.rot-2 { animation: flicker 5s steps(1) infinite; }
+body.rot-2 h1 { letter-spacing: 0.08em; }
+body.r-tear { filter: invert(1); transform: translateX(4px); }
+
+@keyframes shake { 0% { transform: translate(1px, 0); } 100% { transform: translate(-2px, 1px); } }
+@keyframes flicker { 0%, 92%, 96% { opacity: 1; } 93% { opacity: 0.6; } 97% { opacity: 0.8; } }
